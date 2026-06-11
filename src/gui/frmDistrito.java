@@ -110,11 +110,14 @@ public class frmDistrito extends javax.swing.JFrame {
         dis.setCodigo(Integer.parseInt(txtCodigo.getText()));
         dis.setNombre(txtNombre.getText());
         int resu=daoDis.save(dis);
-        if(resu>0)
+        if(resu>0){
             JOptionPane.showMessageDialog(this, "Distrito Registrado");
-          else
+        listado();
+        
+        }
+        else{
             JOptionPane.showMessageDialog(this, "Error en el Distrito Registrado");
-           
+                }
         
     }//GEN-LAST:event_btnGrabarActionPerformed
 
@@ -154,6 +157,7 @@ public class frmDistrito extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
  void listado(){
      DefaultTableModel modelo=(DefaultTableModel)tblDistritos.getModel();
+     modelo.setRowCount(0);
      List<Distrito> lista=daoDis.findAll();
      Iterator<Distrito> itr=lista.iterator();
      while(itr.hasNext()){
