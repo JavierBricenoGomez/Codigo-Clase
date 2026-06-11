@@ -13,7 +13,28 @@ public class MySqlDistritoDAO implements IDistrito{
 
     @Override
     public int save(Distrito bean) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+     int salida=-1;
+     Connection cn=null;
+     PreparedStatement pstm=null;
+     try{
+         cn=MySqlConexion.getConexion();
+         String sql="insert into tb_distrito values(?,?)";
+         pstm=cn.prepareStatement(sql);
+         pstm.setInt(1, bean.getCodigo());
+         pstm.setString(2, bean.getNombre());
+         salida=pstm.executeUpdate();
+     } catch (Exception e){
+         e.printStackTrace();
+     } finally{
+         try {
+             if(cn!=null) cn.close();
+             if(pstm!=null) pstm.close();
+         } catch(Exception e){
+             e.printStackTrace();
+         }
+     }
+    return salida;
+    
     }
 
     @Override
