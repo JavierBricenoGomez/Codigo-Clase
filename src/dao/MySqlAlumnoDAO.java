@@ -75,10 +75,11 @@ public class MySqlAlumnoDAO implements IAlumno{
                 //        con la fila actual
                 alu.setCodigo(rs.getInt(1));//      1 es la columna código
                 alu.setNombre(rs.getString(2)); //  2 es la columna nombre
-                alu.setCodigoDistrito(rs.getInt(7));
                 alu.setPaterno(rs.getString(3));
                 alu.setMaterno(rs.getString(4));
+                
                 alu.setDireccion(rs.getString(6));
+                alu.setCodigoDistrito(rs.getInt(7));
                 //PASO 8: adicionar objeto "dis" dentro del arreglo "lista"
                 lista.add(alu);
             }

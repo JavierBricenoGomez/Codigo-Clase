@@ -160,10 +160,10 @@ public class frmAlumno extends javax.swing.JFrame {
         Alumno alu=new Alumno();
         alu.setCodigo(Integer.parseInt(txtCodigo.getText()));
         alu.setNombre(txtNombre.getText());
-        alu.setCodigoDistrito(Integer.parseInt(txtCodigoDistrito.getText()));
         alu.setPaterno(txtPaterno.getText());
         alu.setMaterno(txtMaterno.getText());
         alu.setDireccion(txtDireccion.getText());
+        alu.setCodigoDistrito(Integer.parseInt(txtCodigoDistrito.getText()));
         int resu=daoAlu.save(alu);
         if(resu>0)
             JOptionPane.showMessageDialog(this, "Alumno Registrado");
