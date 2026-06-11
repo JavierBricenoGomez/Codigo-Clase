@@ -18,10 +18,14 @@ public class MySqlAlumnoDAO implements IAlumno{
      PreparedStatement pstm=null;
      try{
          cn=MySqlConexion.getConexion();
-         String sql="insert into tb_alumno values(?,?)";
+         String sql="insert into tb_alumno values(?,?,?,?,?,?,?)";
          pstm=cn.prepareStatement(sql);
          pstm.setInt(1, bean.getCodigo());
          pstm.setString(2, bean.getNombre());
+         pstm.setString(3, bean.getPaterno());
+         pstm.setString(4, bean.getMaterno());
+         pstm.setString(6, bean.getDireccion());
+         pstm.setInt(7, bean.getCodigoDistrito());
          salida=pstm.executeUpdate();
      } catch (Exception e){
          e.printStackTrace();
